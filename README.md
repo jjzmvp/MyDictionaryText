@@ -1,2 +1,0 @@
-# Mydict
-Just some txt!
