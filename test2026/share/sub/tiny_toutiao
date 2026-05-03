@@ -12,7 +12,10 @@ http_first="[M] http://[H][U] [V]\r\n";
 
 https_connect=on;
 # https_ip 可通过https://www.itdog.cn/ping/cloudnproxy.n.shifen.com 测试，查找属于中国联通的IP
-https_ip=110.242.70.68;   # https_ip=110.242.70.68
+# 联通机房有保定、苏州、南京、广州4地，测试表明广州联通不免，其他机房均可以
+https_ip=110.242.70.68;  # 保定联通
+# https_ip=157.0.146.158;  # 苏州联通
+# https_ip=153.3.237.117;  # 南京联通
 https_port=443;
 https_del="Host,X-Online-Host";
 https_first="[M] [H]@gw.alicdn.com [V]\r\n";
@@ -27,13 +30,13 @@ bypass_flow=true;
 #下面是v2ray服务器
 #v2ray 参数按照服务器设置填写
 #v2ray服务器 IP
-v2_address=43.154.96.128;
+v2_address=xx.xx.xx.xx;
 
 #v2ray服务器 端口
 v2_port=22001;
 
 #v2ray 用户id
-v2_id=5dbd27f1-c8ea-4d9b-ac8a-9bb5348fffa1;
+v2_id=uuid;
 
 #v2ray dns设置 
 v2_dnsip=8.8.8.8;
