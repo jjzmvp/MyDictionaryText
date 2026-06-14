@@ -1,0 +1,92 @@
+listen_port=65080;
+worker_proc=0;
+daemon=on;
+uid=3004;
+mode=net;
+
+http_others=on;
+http_ip=;
+http_port=80;
+http_del="Host,X-Online-Host";
+http_first="[M] http://[H][U] [V]\r\n";
+
+https_connect=on;
+# https_ip 可通过https://www.itdog.cn/ping/cloudnproxy.n.shifen.com 测试，查找属于中国联通的IP
+# 联通机房有保定、苏州、南京、广州4地，测试表明广州联通不免，其他机房均可以
+https_ip=110.242.70.68;  # 保定联通
+# https_ip=157.0.146.158;  # 苏州联通
+# https_ip=153.3.237.117;  # 南京联通
+https_port=443;
+https_del="Host,X-Online-Host";
+https_first="[M] [H]@gw.alicdn.com [V]\r\n";
+
+dns_tcp=http;
+dns_listen_port=65053;
+dns_url="119.29.29.29";
+
+#分流字段
+bypass_flow=true;
+
+#下面是v2ray服务器
+#v2ray 参数按照服务器设置填写
+#v2ray服务器 IP
+v2_address=xx.xx.xx.xx;
+
+#v2ray服务器 端口
+v2_port=22001;
+
+#v2ray 用户id
+v2_id=uuid;
+
+#v2ray dns设置 
+v2_dnsip=8.8.8.8;
+
+#v2ray 额外ID
+v2_alterId=0;
+
+#v2ray VLESS代理加密方式 none
+v2_encryption={encryption};
+
+#v2ray 加密方式 none auto aes-128-gcm chacha20-poly1305
+v2_security=auto;
+
+#v2ray 流控处理方式 xtls-rprx-origin xtls-rprx-direct xtls-rprx-origin-udp443 xtls-rprx-direct-udp443
+v2_flow={flow};
+
+#v2ray 传输协议 quic h2 ws kcp tcp
+v2_network=tcp;
+
+#v2ray 配置别名 无效参数
+#v2_remarks=v2ray;
+
+#v2ray 伪装类型 none http srtp utp wechat-video dtls wireguard
+v2_headerType=http;
+
+#v2ray 伪装域名(host/ws host/h2 host)/QUIC 加密方式
+v2_requestHost=pull-hls.free.video.10010.com;
+
+#v2ray path(ws path/h2 path)/QUIC加密方式
+v2_path=/TS/recharge/tzUrl.html;
+
+#v2ray 底层传输安全 tls xtls
+v2_streamSecurity=none;
+
+#v2ray tls 允许不安全连接 true false
+v2_allowlnsecure=true;
+
+#v2ray 配置类型 1 vmess 3 shadowsocks 4 socks 5 vless 6 trojan
+v2_configType=1;
+
+#v2ray 配置版本
+v2_configVersion=2;
+
+#v2ray 参数不明 留空
+v2_testResult=;
+
+#v2ray 参数不明 留空
+v2_subid=;
+
+#连接到tiny的前置，tiny + v2 分流模式必须加上以下部分
+https_ip=127.0.0.1;
+https_port=18080;
+https_first="[M] [H] [V]\r\nHost:[H]\r\n";
